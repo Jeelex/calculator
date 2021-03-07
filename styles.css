@@ -18,7 +18,7 @@ body {
   border: 1px solid black;
   border-radius: 5px;
   box-shadow: 0 0 25px black;
-  width: 300px;
+  width: 40%;
   display: grid;
   grid-template-rows: 1.5fr 1fr 1fr 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -111,6 +111,7 @@ body {
   font-family: "Orbitron", sans-serif;
 }
 
+#equals,
 .operators {
   background-color: #ff9429;
   font-size: 1.5rem;
@@ -118,9 +119,9 @@ body {
   line-height: 1.5rem;
 }
 
+
+#equals:hover,
 .btn:hover,
 .operators:hover {
   background-color: cornflowerblue;
 }
-
-
