@@ -36,7 +36,7 @@ body {
   border-radius: 2px;
   background-color: #2c2c2c;
   padding: 8px 12px;
-  font-size: 30px;
+  font-size: 27px;
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
@@ -111,8 +111,8 @@ body {
   font-family: "Orbitron", sans-serif;
 }
 
-#equals,
-.operators {
+
+:is(#equals, .operators) {
   background-color: #ff9429;
   font-size: 1.5rem;
   padding: 0;
@@ -120,8 +120,6 @@ body {
 }
 
 
-#equals:hover,
-.btn:hover,
-.operators:hover {
+:is(#equals, .btn, .operators):hover {
   background-color: cornflowerblue;
 }
