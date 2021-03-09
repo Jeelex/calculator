@@ -3,7 +3,7 @@
 
 const screen = document.getElementById("screen");
 const numberBtns = document.querySelectorAll(".number-btns");
-const del = document.getElementById("del");
+// const del = document.getElementById("del");
 const ac = document.getElementById("ac");
 const equals = document.getElementById("equals");
 const operators = document.querySelectorAll(".operators");
@@ -29,12 +29,17 @@ numberBtns.forEach((button) =>
 // Operator Event Listeners
 operators.forEach((button) => button.addEventListener("click", () => {
   op = button.textContent;
-  screen.textContent += op;
+  screen.textContent = op;
   if (op === "x") {
     op = "*";
   } else if (op === "÷") {
     op = "/";
   }
+
+  // if (screen.textContent.length -1 === op) {
+  //   console.log("this works!");
+  // }
+
   })
 );   
 
@@ -46,33 +51,26 @@ ac.addEventListener("click", () => {
 });
 
 
-del.addEventListener("click", () => {
-  screen.textContent = screen.textContent.slice(0, -1); 
-  // screen.textContent = numberBtns.forEach(button => button.textContent.slice(0, -1));
+// del.addEventListener("click", () => {
+//   screen.textContent = screen.textContent.slice(0, -1); 
+//   // screen.textContent = numberBtns.forEach(button => button.textContent.slice(0, -1));
 
-  if (num2 === "") {
-    num1 = screen.textContent;
-    console.log("num1 after del clicked: " + num1);
-  } else {
-    let plusSign = screen.textContent.indexOf("+") + 1;
-    num2 = screen.textContent.slice(plusSign);
-    console.log("num2 after del clicked: " + num2);
-  }
-});
+//   if (num2 === "") {
+//     num1 = screen.textContent;
+//     console.log("num1 after del clicked: " + num1);
+//   } else {
+//     let plusSign = screen.textContent.indexOf("+") + 1;
+//     num2 = screen.textContent.slice(plusSign);
+//     console.log("num2 after del clicked: " + num2);
+//   }
+// });
 
 equals.addEventListener("click", () => {
-  // let equalResult = screen.textContent = num2 !== "" ? getResult() : "Enter Number";
-  let equalResult = screen.textContent = getResult();
-  console.log("equals is: " + equalResult);
-  console.log("equals type is: " + typeof equalResult);
+  screen.textContent = num2 !== "" ? getResult() : "Enter Number";
+  // console.log("equals is: " + equalResult);
+  // console.log("equals type is: " + typeof equalResult);
   
 });
-
-
-// function back() {
-//   var value = document.getElementById("d").value;
-//   document.getElementById("d").value = value.substr(0, value.length - 1);
-// }
 
 
 // Functions
@@ -86,17 +84,11 @@ function operate(buttonClicked) {
     // console.log("before assignment num2 is: ", num2);
     num2 += buttonClicked;
     console.log("after assignment num2 is: ", num2);
-    // if (delIsClicked) {
-    //   num2 = screen.textContent;
-    // }
+    screen.textContent = `${num1} ${op} ${num2}`;
   } else {
     // console.log("before assignment num1 is: ", num1);
     num1 += buttonClicked;
     console.log("after assignment num1 is: ", num1);
-    // if (delIsClicked === true) {
-    //   num1 = "";
-    //   num1 = screen.textContent;
-    // }
   }
 }
 
@@ -117,7 +109,7 @@ function getResult() {
     result = num1 - num2;
   } else if (op === "*") {
     result = num1 * num2;
-  } else {
+  } else if (op === "/") {
     if (num1 !== 0 && num2 !== 0) {
       result = num1 / num2;
     } else {
@@ -125,7 +117,7 @@ function getResult() {
     }
   }
 
-  if (result !== Math.round(result * 100) / 100 ) {
+  if (typeof result === "number" && result !== Math.round(result * 100) / 100 ) {
     result =  Math.round(result * 100) / 100;
   }
 
@@ -138,7 +130,5 @@ function getResult() {
 /*
 6. Gotchas: watch out for and fix these bugs if they show up in your code:
     a. Users should be able to string together several operations and get the right answer, with each pair of numbers being evaluated at a time. For example, 12 + 7 - 5 * 3 = should yield 42. An example of the behavior we’re looking for would be this online calculator: https://www.theonlinecalculator.com/. Note that this behavior means your calculator is not required to follow order of operations, aka PEMDAS (though there’s nothing stopping you from implementing PEMDAS if you feel like it!).
-
-    c. Pressing = before entering all of the numbers or an operator could cause problems!
 
 */
