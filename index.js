@@ -18,6 +18,8 @@ let result;
 numberBtns.forEach((button) => button.addEventListener("click", () => {
     if ( equals.addEventListener('click', () => {}) ) {
       screen.textContent = num2 !== "" ? getResult() : "Enter Number";
+    } else if (screen.textContent === "Enter Number") {
+      screen.textContent = num1;
     } else {
       screen.textContent = num1;
     }
@@ -125,7 +127,7 @@ function getResult() {
 
 
 
-// TODO need to create an ERROR when user has not clicked num1 
+// TODO need to create an ERROR when user has not clicked num1
 // TODO solve issue with screen.textContent =  "enter number" 
 
 
