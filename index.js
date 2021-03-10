@@ -6,7 +6,8 @@ const numberBtns = document.querySelectorAll('.number-btns');
 const ac = document.getElementById('ac');
 const equals = document.getElementById('equals');
 const operators = document.querySelectorAll('.operators');
-const del = document.getElementById("del");
+const del = document.getElementById('del');
+const dot = document.getElementById('dot');
 
 let num1 = '';
 let num2 = '';
@@ -87,12 +88,12 @@ function assignValues(buttonClicked) {
 
 function getResult() {
 	// console.log("op is: " + op + " " + typeof op);
-	// console.log("num1 is: " + num1 + " " + typeof num1);
-	// console.log("num2 is: " + num2 + " " + typeof num2);
-	num1 = parseInt(num1, 10);
-	num2 = parseInt(num2, 10);
-	// console.log("num1 after parseInt is: " + num1 + " " + typeof num1);
-	// console.log("num2 after parseInt is: " + num2 + " " + typeof num2);
+	console.log('num1 is: ' + num1 + ' ' + typeof num1);
+	console.log('num2 is: ' + num2 + ' ' + typeof num2);
+	num1 = parseFloat(num1, 10);
+	num2 = parseFloat(num2, 10);
+	console.log('num1 after parseInt is: ' + num1 + ' ' + typeof num1);
+	console.log('num2 after parseInt is: ' + num2 + ' ' + typeof num2);
 	if (op === '+') {
 		result = num1 + num2;
 	} else if (op === '-') {
@@ -115,26 +116,31 @@ function getResult() {
 }
 
 // ---------    Backspace button  ----------
-del.addEventListener("click", () => {
-  screen.textContent = screen.textContent.slice(0, -1);
-  
-  if (op === "") {
-    num1 = screen.textContent;
-    console.log('after DEL num1 is: ', num1);
-  } else {
-    let operatorIndex = screen.textContent.indexOf(op);
-    num2 = screen.textContent.slice(operatorIndex + 1);
-    console.log('after DEL num2 is: ', num2);
-  }
+del.addEventListener('click', () => {
+	screen.textContent = screen.textContent.slice(0, -1);
 
+	if (op === '') {
+		num1 = screen.textContent;
+		console.log('after DEL num1 is: ', num1);
+	} else {
+		let operatorIndex = screen.textContent.indexOf(op);
+		num2 = screen.textContent.slice(operatorIndex + 1);
+		console.log('after DEL num2 is: ', num2);
+	}
 });
 
-// function appendPoint() {
-//   if (shouldResetScreen) resetScreen();
-//   if (screen.textContent === "") screen.textContent = "0";
-//   if (screen.textContent.includes(".")) return;
-//   screen.textContent += ".";
-// }
+dot.addEventListener('click', () => {
+	screen.textContent += '.';
+	if (op === '') {
+		if (num1.includes('.')) return;
+		num1 = screen.textContent;
+		if (screen.textContent.includes('.')) return;
+	} else {
+		let operatorIndex = screen.textContent.indexOf(op);
+		num2 = screen.textContent.slice(operatorIndex + 2);
+	}
+});
 
 
 // TODO DEL button should not delete operator from screen
+// TODO Add keyboard support
