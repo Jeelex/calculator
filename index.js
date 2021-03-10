@@ -15,8 +15,9 @@ let result;
 
 
 // Number Buttons Event Listener
-numberBtns.forEach((button) =>
-  button.addEventListener("click", () => {
+numberBtns.forEach((button) => button.addEventListener("click", () => {
+    // console.log(e.target.textContent);
+    // screen.textContent += e.target.textContent;
     screen.textContent += button.textContent;
     operate(button.textContent);
   })
@@ -25,41 +26,28 @@ numberBtns.forEach((button) =>
 
 // Operator Event Listeners
 operators.forEach((button) => button.addEventListener("click", () => {
-  op = button.textContent;
-  screen.textContent = op;
-  if (op === "x") {
-    op = "*";
-  } else if (op === "÷") {
-    op = "/";
+  if (num1 && num2 && op) {
+    num1 = getResult();
+    screen.textContent = num1;
+    num2 = "";
+    if (button.textContent === "x") {
+      op = "*";
+    } else if (button.textContent === "÷") {
+      op = "/";
+    } else {
+      op = button.textContent;
+    }
+  } else {
+    op = button.textContent;
+    if (op === "x") {
+      op = "*";
+    } else if (op === "÷") {
+      op = "/";
+    } 
+    screen.textContent = op;
   }
-
-  // αν οριστεί το op και πατήσει άλλο op να κάνει την πράξη
-  // if (num2 && op) {
-  //   num1 = getResult();
-  //   console.log("num1 is now : " + num1);
-  //   console.log("result : " + getResult());
-    // screen.textContent = getResult();
-  //   // console.log("result : " + getResult());
-  //   // num1 = getResult();
-  //   num2 = "";
-  //   console.log("num2 is now : " + num2);
-  // }
-  
 })
-);   
-
-const minusOperator = document.getElementById('minus');
-if (num2 && op) {
-  if (minusOperator.addEventListener('click', () => {
-    console.log("SHIIIIT");
-  }))
-{
-
-}}
-
-  
-
-
+);
 
 
   ac.addEventListener("click", () => {
