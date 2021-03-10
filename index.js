@@ -16,11 +16,11 @@ let result;
 
 // Number Buttons Event Listener
 numberBtns.forEach((button) => button.addEventListener("click", () => {
-    // if ( equals.addEventListener('click', () => {}) ) {
-    //   screen.textContent = num2 !== "" ? getResult() : "Enter Number";
-    // } else {
-    //   screen.textContent = "";
-    // }
+    if ( equals.addEventListener('click', () => {}) ) {
+      screen.textContent = num2 !== "" ? getResult() : "Enter Number";
+    } else {
+      screen.textContent = num1;
+    }
 
     screen.textContent += button.textContent;
     operate(button.textContent);
@@ -126,7 +126,7 @@ function getResult() {
 
 
 // TODO need to create an ERROR when user has not clicked num1 
-
+// TODO solve issue with screen.textContent =  "enter number" 
 
 
 // function appendPoint() {
