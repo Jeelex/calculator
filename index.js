@@ -16,8 +16,12 @@ let result;
 
 // Number Buttons Event Listener
 numberBtns.forEach((button) => button.addEventListener("click", () => {
-    // console.log(e.target.textContent);
-    // screen.textContent += e.target.textContent;
+    // if ( equals.addEventListener('click', () => {}) ) {
+    //   screen.textContent = num2 !== "" ? getResult() : "Enter Number";
+    // } else {
+    //   screen.textContent = "";
+    // }
+
     screen.textContent += button.textContent;
     operate(button.textContent);
   })
@@ -60,8 +64,9 @@ operators.forEach((button) => button.addEventListener("click", () => {
 
   equals.addEventListener("click", () => {
     screen.textContent = num2 !== "" ? getResult() : "Enter Number";
-    // console.log("equals is: " + equalResult);
-    // console.log("equals type is: " + typeof equalResult);
+    num1 = "";
+    num2 = "";
+    op = "";
   });
 
 
@@ -111,57 +116,17 @@ function getResult() {
 }
 
 
-// (((12 + 7) - 5) * 3) + 5
-// slice()
-// .length "("
-// .length -1 ")"
-// while loop
-// for loop
-
-// function stringTogether(a, b) {
-//   let result = "";
-  
-//   a = "(" + a;
-//   b = b + ")";
-//   // console.log("after : " + a, b);
-//   op = "+"
-//   result = a + op + b
-//   // result = (...)
-//   return result 
-// }
-// console.log(stringTogether(1,2));
-
-
-
-// -----------     GUIDELINES -----------------
-/*
-6. Gotchas: watch out for and fix these bugs if they show up in your code:
-    a. Users should be able to string together several operations and get the right answer, with each pair of numbers being evaluated at a time. For example, 12 + 7 - 5 * 3 = should yield 42. An example of the behavior we’re looking for would be this online calculator: https://www.theonlinecalculator.com/. Note that this behavior means your calculator is not required to follow order of operations, aka PEMDAS (though there’s nothing stopping you from implementing PEMDAS if you feel like it!).
-
-*/
-
-
 // ---------    Backspace button  ----------
 // del.addEventListener("click", () => {
 //   screen.textContent = screen.textContent.slice(0, -1); 
-//   // screen.textContent = numberBtns.forEach(button => button.textContent.slice(0, -1));
-
-//   if (num2 === "") {
-//     num1 = screen.textContent;
-//     console.log("num1 after del clicked: " + num1);
-//   } else {
-//     let plusSign = screen.textContent.indexOf("+") + 1;
-//     num2 = screen.textContent.slice(plusSign);
-//     console.log("num2 after del clicked: " + num2);
-//   }
 // });
 
 
 
 
-// function clear() {
-//   return (screen.textContent = "");
-// }
+
+// TODO need to create an ERROR when user has not clicked num1 
+
 
 
 // function appendPoint() {
