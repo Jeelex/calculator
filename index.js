@@ -115,7 +115,7 @@ function getResult() {
 	return result;
 }
 
-// ---------    Backspace button  ----------
+
 del.addEventListener('click', () => {
 	screen.textContent = screen.textContent.slice(0, -1);
 
@@ -130,6 +130,9 @@ del.addEventListener('click', () => {
 });
 
 dot.addEventListener('click', () => {
+
+  // if (screen.textContent.includes(".")) return;
+
 	screen.textContent += '.';
 	if (op === '') {
 		if (num1.includes('.')) return;
@@ -142,5 +145,7 @@ dot.addEventListener('click', () => {
 });
 
 
-// TODO DEL button should not delete operator from screen
+
+// TODO fix dot so that no more than 1 per num can be added
+// TODO DEL button should not delete operator from screen - should stop before that happens.
 // TODO Add keyboard support
