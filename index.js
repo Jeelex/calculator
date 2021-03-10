@@ -6,7 +6,7 @@ const numberBtns = document.querySelectorAll('.number-btns');
 const ac = document.getElementById('ac');
 const equals = document.getElementById('equals');
 const operators = document.querySelectorAll('.operators');
-// const del = document.getElementById("del");
+const del = document.getElementById("del");
 
 let num1 = '';
 let num2 = '';
@@ -115,11 +115,19 @@ function getResult() {
 }
 
 // ---------    Backspace button  ----------
-// del.addEventListener("click", () => {
-//   screen.textContent = screen.textContent.slice(0, -1);
-// });
+del.addEventListener("click", () => {
+  screen.textContent = screen.textContent.slice(0, -1);
+  
+  if (op === "") {
+    num1 = screen.textContent;
+    console.log('after DEL num1 is: ', num1);
+  } else {
+    let operatorIndex = screen.textContent.indexOf(op);
+    num2 = screen.textContent.slice(operatorIndex + 1);
+    console.log('after DEL num2 is: ', num2);
+  }
 
-// TODO need to create an ERROR when user has not clicked num1
+});
 
 // function appendPoint() {
 //   if (shouldResetScreen) resetScreen();
@@ -127,3 +135,6 @@ function getResult() {
 //   if (screen.textContent.includes(".")) return;
 //   screen.textContent += ".";
 // }
+
+
+// TODO DEL button should not delete operator from screen
