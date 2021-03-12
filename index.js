@@ -158,6 +158,7 @@ dot.addEventListener("click", () => {
 	}
 });
 
-// TODO fix when 0 clicked before a number - need to remove it
+
 // TODO DEL button should not delete operator from screen - should stop before that happens.
 // TODO Add keyboard support
+// TODO fix when 0 clicked before a number - need to remove it
