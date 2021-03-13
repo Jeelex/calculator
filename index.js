@@ -122,29 +122,15 @@ del.addEventListener("click", () => {
 		num1 = screen.textContent;
 		console.log("after DEL num1 is: ", num1);
 	} else {
+		if (num2 === "") {
+			screen.textContent = `${num1} ${op} `;
+		}
+
 		let operatorIndex = screen.textContent.indexOf(op);
 		num2 = screen.textContent.slice(operatorIndex + 1);
 		console.log("after DEL num2 is: ", num2);
 	}
 });
-
-// del.addEventListener("click", () => {
-// 	screen.textContent = screen.textContent.slice(0, -1);
-// 	// num1 = screen.textContent;
-// 	// num2 = screen.textContent;
-// 	if (op === "") {
-// 		num1 = screen.textContent;
-// 		console.log("after DEL num1 is: ", num1);
-// 	} else {
-// 		// if (screen.textContent.includes(op) ){
-// 		screen.textContent = num1 + op + num2;
-// 		let operatorIndex = screen.textContent.indexOf(op);
-// 		num2 = screen.textContent.slice(operatorIndex + 1);
-// 		//  }
-// 		// num2 = screen.textContent.slice(operatorIndex + 1);
-// 		console.log("after DEL num2 is: ", num2);
-// 	}
-// });
 
 dot.addEventListener("click", () => {
 	if (op === "") {
@@ -158,7 +144,8 @@ dot.addEventListener("click", () => {
 	}
 });
 
-
-// TODO DEL button should not delete operator from screen - should stop before that happens.
 // TODO Add keyboard support
 // TODO fix when 0 clicked before a number - need to remove it
+// TODO PEMDAS precedence etc
+
+// right click -> refactor  --- ELVIS trick!!!
