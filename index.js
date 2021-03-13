@@ -20,9 +20,9 @@ numberBtns.forEach((button) =>
 		if (equals.addEventListener("click", () => {})) {
 			screen.textContent = num2 !== "" ? getResult() : "Enter Number";
 		} else if (screen.textContent === "Enter Number") {
-			screen.textContent = num1;
+			screen.textContent = num1.replace(/^0+/, "");
 		} else {
-			screen.textContent = num1;
+			screen.textContent = num1.replace(/^0+/, "");
 		}
 
 		screen.textContent += button.textContent;
@@ -76,24 +76,24 @@ equals.addEventListener("click", () => {
 function assignValues(buttonClicked) {
 	if (op === "+" || op === "-" || op === "*" || op === "/") {
 		// console.log("before assignment num2 is: ", num2);
-		num2 += buttonClicked;
+		num2 += buttonClicked.replace(/^0+/, "");
 		console.log("after assignment num2 is: ", num2);
 		screen.textContent = `${num1} ${op} ${num2}`;
 	} else {
 		// console.log("before assignment num1 is: ", num1);
-		num1 += buttonClicked;
+		num1 += buttonClicked.replace(/^0+/, "");
 		console.log("after assignment num1 is: ", num1);
 	}
 }
 
 function getResult() {
 	// console.log("op is: " + op + " " + typeof op);
-	console.log("num1 is: " + num1 + " " + typeof num1);
-	console.log("num2 is: " + num2 + " " + typeof num2);
+	// console.log("num1 is: " + num1 + " " + typeof num1);
+	// console.log("num2 is: " + num2 + " " + typeof num2);
 	num1 = parseFloat(num1, 10);
 	num2 = parseFloat(num2, 10);
-	console.log("num1 after parseInt is: " + num1 + " " + typeof num1);
-	console.log("num2 after parseInt is: " + num2 + " " + typeof num2);
+	// console.log("num1 after parseInt is: " + num1 + " " + typeof num1);
+	// console.log("num2 after parseInt is: " + num2 + " " + typeof num2);
 	if (op === "+") {
 		result = num1 + num2;
 	} else if (op === "-") {
@@ -148,4 +148,4 @@ dot.addEventListener("click", () => {
 // TODO fix when 0 clicked before a number - need to remove it
 // TODO PEMDAS precedence etc
 
-// right click -> refactor  --- ELVIS trick!!!
+// TODO refactor => right click -> refactor  --- ELVIS trick!!!
