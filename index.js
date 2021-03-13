@@ -20,9 +20,11 @@ numberBtns.forEach((button) =>
 		if (equals.addEventListener("click", () => {})) {
 			screen.textContent = num2 !== "" ? getResult() : "Enter Number";
 		} else if (screen.textContent === "Enter Number") {
-			screen.textContent = num1.replace(/^0+/, "");
+			// screen.textContent = num1.replace(/^0+/, "");
+			screen.textContent = num1;
 		} else {
-			screen.textContent = num1.replace(/^0+/, "");
+			// screen.textContent = num1.replace(/^0+/, "");
+			screen.textContent = num1;
 		}
 
 		screen.textContent += button.textContent;
@@ -76,15 +78,32 @@ equals.addEventListener("click", () => {
 function assignValues(buttonClicked) {
 	if (op === "+" || op === "-" || op === "*" || op === "/") {
 		// console.log("before assignment num2 is: ", num2);
-		num2 += buttonClicked.replace(/^0+/, "");
+		if (num2 === "0.") {
+			// console.log("ELSE IF  0 WITH DOT ");
+			num2 += buttonClicked.replace(/^0+/, "");
+		} else if (num2 === "0") {
+			// console.log("ELSE IF  0 ");
+			num2 += buttonClicked.replace(/^0+/, "");
+			screen.textContent = num2;
+		} else {
+			num2 += buttonClicked;
+		}
 		console.log("after assignment num2 is: ", num2);
 		screen.textContent = `${num1} ${op} ${num2}`;
-	} else {
+	} else if (num1 === "0.") {
 		// console.log("before assignment num1 is: ", num1);
+		// console.log("ELSE IF  0 WITH DOT ");
 		num1 += buttonClicked.replace(/^0+/, "");
-		console.log("after assignment num1 is: ", num1);
+	} else if (num1 === "0") {
+		// console.log("ELSE IF  0 ");
+		num1 += buttonClicked.replace(/^0+/, "");
+		screen.textContent = num1;
+	} else {
+		num1 += buttonClicked;
 	}
+	console.log("after assignment num1 is: ", num1);
 }
+
 
 function getResult() {
 	// console.log("op is: " + op + " " + typeof op);
@@ -147,5 +166,7 @@ dot.addEventListener("click", () => {
 // TODO Add keyboard support
 // TODO fix when 0 clicked before a number - need to remove it
 // TODO PEMDAS precedence etc
+// TODO we don't have a function operate()
+// TODO dot should place a "0" before "." if no other number before dot
 
 // TODO refactor => right click -> refactor  --- ELVIS trick!!!
