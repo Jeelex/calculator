@@ -172,7 +172,6 @@ dot.addEventListener("click", () => {
 	}
 });
 
-// TODO fix when 0 clicked before a number - need to remove it
 // TODO Add keyboard support
 // TODO PEMDAS precedence etc
 // TODO we don't have a function operate()
