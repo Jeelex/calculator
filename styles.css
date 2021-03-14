@@ -19,22 +19,24 @@ body {
 	border: 1px solid black;
 	border-radius: 5px;
 	box-shadow: 0 0 25px black;
-	width: 300px;
+	width: 350px;
+	padding: 20px 20px 20px 10px;
 	display: grid;
+	grid-gap: 15px;
 	grid-template-rows: 1.5fr 1fr 1fr 1fr 1fr;
 	grid-template-columns: 1fr 1fr 1fr 1fr;
 	grid-template-areas:
 		'screen screen screen screen'
-		'ac    ac   delete   divide'
-		'btn7   btn8   btn9   multiply'
-		'btn4   btn5   btn6       minus'
-		'btn1   btn2   btn3      plus'
-		'btn0   btn0    dot     equals';
+		'plus   minus  multiply  divide'
+		'btn7   btn8   btn9   delete'
+		'btn4   btn5   btn6   ac'
+		'btn1   btn2   btn3   equals'
+		'btn0   btn0    dot   equals';
 }
 
 #screen {
 	grid-area: screen;
-	border-radius: 2px;
+	border-radius: 5px;
 	background-color: #2c2c2c;
 	padding: 8px 12px;
 	font-size: 27px;
@@ -43,7 +45,9 @@ body {
 	align-items: flex-end;
 	word-break: break-all;
 	overflow: hidden;
-	max-height: 74px;
+	height: 65px;
+	/* max-height: 95px; */
+	text-align: right;
 }
 
 #ac {
@@ -102,23 +106,68 @@ body {
 .btn {
 	padding: 16px;
 	margin: 0;
-	font-size: 20px;
+	font-size: 22px;
 	cursor: pointer;
-	background-color: #5f5f5f;
+	/* background-color: #5f5f5f; */
+	background-color: rgba(0, 0, 0, 0.835);
 	border-style: solid;
 	border-color: rgb(37, 37, 37);
-	border-width: 0.01em;
-	color: white;
+	border-width: 1px;
+	/* color: white; */
+	color: red;
 	font-family: 'Orbitron', sans-serif;
+	transition: .3s ease;
+
+	box-shadow: 2px 2px 5px rgb(255, 0, 0);
 }
 
-:is(#equals, .operators) {
-	background-color: #ff9429;
-	font-size: 1.5rem;
-	padding: 0;
-	line-height: 1.5rem;
+:is(.btn):hover {
+	transform: scale(1.1);
+	border-style: hidden;
 }
 
-:is(#equals, .btn, .operators):hover {
-	background-color: cornflowerblue;
+.operators{
+	box-shadow: 2px 2px 4px rgb(0, 255, 0);
+	font-size: 25px;
 }
+.operators:hover {
+	background-color: rgb(0, 255, 0);
+	color: black;
+}
+
+#equals {
+	box-shadow: 2px 2px 5px #ffff00;
+}
+#equals:hover{
+	background-color: #ffff00;
+	color: black;
+}
+
+#dot {
+	box-shadow: 2px 2px 5px rgb(255, 0, 242);
+}
+#dot:hover{
+	background-color: rgb(255, 0, 242);
+	color: black;
+}
+
+:is(#del, #ac)  {
+	box-shadow: 2px 2px 5px rgb(0, 247, 255);
+}
+:is(#del, #ac):hover  {
+	background-color: rgb(0, 247, 255);
+	color: black;
+}
+
+
+
+.number-btns:hover {
+	background-color: rgb(184, 0, 0);
+	color: white;
+}
+
+
+/* :is(#equals, .btn, .operators):active {
+	background-color: greenyellow;
+	transform: scale(1.1);
+} */
