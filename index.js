@@ -14,16 +14,16 @@ let num2 = "";
 let op = "";
 let result;
 
-// Number Buttons Event Listener
 numberBtns.forEach((button) =>
 	button.addEventListener("click", () => {
 		if (equals.addEventListener("click", () => {})) {
 			screen.textContent = num2 !== "" ? getResult() : "Enter Number";
 		} else if (screen.textContent === "Enter Number") {
-			screen.textContent = num1.replace(/^0+/, "");
-			// screen.textContent = num1;
+			screen.textContent = num1;
+		} else if (screen.textContent === "0") {
+			num1 = "";
+			screen.textContent = "";
 		} else {
-			// screen.textContent = num1.replace(/^0+/, "");
 			screen.textContent = num1;
 		}
 
