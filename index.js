@@ -17,7 +17,7 @@ let result;
 numberBtns.forEach((button) =>
 	button.addEventListener("click", () => {
 		if (equals.addEventListener("click", () => {})) {
-			screen.textContent = num2 !== "" ? getResult() : "Enter Number";
+			screen.textContent = num2 !== "" ? operate() : "Enter Number";
 		} else if (screen.textContent === "Enter Number") {
 			screen.textContent = num1;
 		} else if (screen.textContent === "0") {
@@ -38,7 +38,7 @@ numberBtns.forEach((button) =>
 operators.forEach((button) =>
 	button.addEventListener("click", () => {
 		if (num1 && num2 && op) {
-			num1 = getResult();
+			num1 = operate();
 			screen.textContent = num1;
 			num2 = "";
 			if (button.textContent === "x") {
@@ -70,7 +70,7 @@ ac.addEventListener("click", () => {
 });
 
 equals.addEventListener("click", () => {
-	screen.textContent = num2 !== "" ? getResult() : "Enter Number";
+	screen.textContent = num2 !== "" ? operate() : "Enter Number";
 	num1 = "";
 	num2 = "";
 	op = "";
@@ -106,7 +106,7 @@ function assignValues(buttonClicked) {
 	console.log("after assignment num1 is: ", num1);
 }
 
-function getResult() {
+function operate() {
 	// console.log("op is: " + op + " " + typeof op);
 	// console.log("num1 is: " + num1 + " " + typeof num1);
 	// console.log("num2 is: " + num2 + " " + typeof num2);
@@ -174,6 +174,5 @@ dot.addEventListener("click", () => {
 
 // TODO Add keyboard support
 // TODO PEMDAS precedence etc
-// TODO we don't have a function operate()
 
 // TODO refactor => right click -> refactor  --- ELVIS trick!!!
