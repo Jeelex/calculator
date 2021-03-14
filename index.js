@@ -142,7 +142,7 @@ function deleteContent() {
 		}
 
 		let operatorIndex = screen.textContent.indexOf(op);
-		num2 = screen.textContent.slice(operatorIndex + 1);
+		num2 = screen.textContent.slice(operatorIndex + 2);
 		console.log("after DEL num2 is: ", num2);
 	}
 }
