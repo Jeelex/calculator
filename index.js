@@ -1,6 +1,3 @@
-// Το έκανα comment γιατί δεν το χρησιμοποιούμε πουθενά
-// const btn = document.querySelectorAll(".btn");
-
 const screen = document.getElementById("screen");
 const numberBtns = document.querySelectorAll(".number-btns");
 const ac = document.getElementById("ac");
@@ -81,10 +78,8 @@ function assignValues(buttonClicked) {
 	if (op === "+" || op === "-" || op === "*" || op === "/") {
 		// console.log("before assignment num2 is: ", num2);
 		if (num2 === "0.") {
-			// console.log("ELSE IF  0 WITH DOT ");
-			num2 += buttonClicked; //.replace(/^0+/, "");
+			num2 += buttonClicked;
 		} else if (num2 === "0") {
-			// console.log("ELSE IF  0 ");
 			num2 += buttonClicked.replace(/^0+/, "");
 			screen.textContent = num2;
 		} else {
@@ -94,10 +89,8 @@ function assignValues(buttonClicked) {
 		screen.textContent = `${num1} ${op} ${num2}`;
 	} else if (num1 === "0.") {
 		// console.log("before assignment num1 is: ", num1);
-		// console.log("ELSE IF  0 WITH DOT ");
-		num1 += buttonClicked; //.replace(/^0+/, "");
+		num1 += buttonClicked;
 	} else if (num1 === "0") {
-		// console.log("ELSE IF  0 ");
 		num1 += buttonClicked.replace(/^0+/, "");
 		screen.textContent = num1;
 	} else {
