@@ -11,6 +11,8 @@ let num2 = "";
 let op = "";
 let result;
 
+// Event Listeners
+
 numberBtns.forEach((button) =>
 	button.addEventListener("click", () => {
 		if (equals.addEventListener("click", () => {})) {
@@ -31,7 +33,6 @@ numberBtns.forEach((button) =>
 	})
 );
 
-// Operator Event Listeners
 operators.forEach((button) =>
 	button.addEventListener("click", () => {
 		if (num1 && num2 && op) {
@@ -59,21 +60,26 @@ operators.forEach((button) =>
 	})
 );
 
+
+
 ac.addEventListener("click", () => {
 	screen.textContent = "";
-	num1 = "";
-	num2 = "";
-	op = "";
+	clearNumsOp();
 });
 
 equals.addEventListener("click", () => {
 	screen.textContent = num2 !== "" ? operate() : "Enter Number";
-	num1 = "";
-	num2 = "";
-	op = "";
+	clearNumsOp();
 });
 
+dot.addEventListener("click", addDot);
+
+del.addEventListener("click", deleteContent);
+
+
+
 //  Functions
+
 function assignValues(buttonClicked) {
 	if (op === "+" || op === "-" || op === "*" || op === "/") {
 		// console.log("before assignment num2 is: ", num2);
@@ -128,7 +134,7 @@ function operate() {
 	return result;
 }
 
-del.addEventListener("click", () => {
+function deleteContent() {
 	screen.textContent = screen.textContent.slice(0, -1);
 
 	if (op === "") {
@@ -143,9 +149,9 @@ del.addEventListener("click", () => {
 		num2 = screen.textContent.slice(operatorIndex + 1);
 		console.log("after DEL num2 is: ", num2);
 	}
-});
+}
 
-dot.addEventListener("click", () => {
+function addDot() {
 	if (op === "") {
 		if (num1.includes(".")) return;
 		if (num1 === "") {
@@ -163,7 +169,13 @@ dot.addEventListener("click", () => {
 		}
 		screen.textContent = num2;
 	}
-});
+}
+
+function clearNumsOp() {
+	num1 = "";
+	num2 = "";
+	op = "";
+}
 
 // TODO Add keyboard support
 // TODO PEMDAS precedence etc
