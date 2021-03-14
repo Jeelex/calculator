@@ -23,6 +23,8 @@ numberBtns.forEach((button) =>
 		} else if (screen.textContent === "0") {
 			num1 = "";
 			screen.textContent = "";
+		} else if (num2 === "0") {
+			num2 = "";
 		} else {
 			screen.textContent = num1;
 		}
