@@ -60,8 +60,6 @@ operators.forEach((button) =>
 	})
 );
 
-
-
 ac.addEventListener("click", () => {
 	screen.textContent = "";
 	clearNumsOp();
@@ -75,8 +73,6 @@ equals.addEventListener("click", () => {
 dot.addEventListener("click", addDot);
 
 del.addEventListener("click", deleteContent);
-
-
 
 //  Functions
 
@@ -179,5 +175,3 @@ function clearNumsOp() {
 
 // TODO Add keyboard support
 // TODO PEMDAS precedence etc
-
-// TODO refactor => right click -> refactor  --- ELVIS trick!!!
