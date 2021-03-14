@@ -20,8 +20,8 @@ numberBtns.forEach((button) =>
 		if (equals.addEventListener("click", () => {})) {
 			screen.textContent = num2 !== "" ? getResult() : "Enter Number";
 		} else if (screen.textContent === "Enter Number") {
-			// screen.textContent = num1.replace(/^0+/, "");
-			screen.textContent = num1;
+			screen.textContent = num1.replace(/^0+/, "");
+			// screen.textContent = num1;
 		} else {
 			// screen.textContent = num1.replace(/^0+/, "");
 			screen.textContent = num1;
@@ -80,7 +80,7 @@ function assignValues(buttonClicked) {
 		// console.log("before assignment num2 is: ", num2);
 		if (num2 === "0.") {
 			// console.log("ELSE IF  0 WITH DOT ");
-			num2 += buttonClicked //.replace(/^0+/, "");
+			num2 += buttonClicked; //.replace(/^0+/, "");
 		} else if (num2 === "0") {
 			// console.log("ELSE IF  0 ");
 			num2 += buttonClicked.replace(/^0+/, "");
@@ -93,7 +93,7 @@ function assignValues(buttonClicked) {
 	} else if (num1 === "0.") {
 		// console.log("before assignment num1 is: ", num1);
 		// console.log("ELSE IF  0 WITH DOT ");
-		num1 += buttonClicked //.replace(/^0+/, "");
+		num1 += buttonClicked; //.replace(/^0+/, "");
 	} else if (num1 === "0") {
 		// console.log("ELSE IF  0 ");
 		num1 += buttonClicked.replace(/^0+/, "");
@@ -153,7 +153,7 @@ del.addEventListener("click", () => {
 dot.addEventListener("click", () => {
 	if (op === "") {
 		if (num1.includes(".")) return;
-		if (num1 === ""){
+		if (num1 === "") {
 			num1 += "0.";
 		} else {
 			num1 += ".";
@@ -161,7 +161,7 @@ dot.addEventListener("click", () => {
 		screen.textContent = num1;
 	} else {
 		if (num2.includes(".")) return;
-		if (num2 === ""){
+		if (num2 === "") {
 			num2 += "0.";
 		} else {
 			num2 += ".";
@@ -171,7 +171,6 @@ dot.addEventListener("click", () => {
 });
 
 // TODO fix when 0 clicked before a number - need to remove it
-// TODO dot should place a "0" before "." if no other number before dot
 // TODO Add keyboard support
 // TODO PEMDAS precedence etc
 // TODO we don't have a function operate()
