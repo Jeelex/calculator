@@ -5,7 +5,7 @@
 }
 
 body {
-	background: linear-gradient(135deg, gray, black);
+	background: linear-gradient(135deg, #5ab0a7, black);
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -13,6 +13,7 @@ body {
 }
 
 .container {
+	background-color: #403e3e;
 	max-width: 100%;
 	font-family: 'Orbitron', sans-serif;
 	color: white;
@@ -162,7 +163,7 @@ body {
 
 
 .number-btns:hover {
-	background-color: rgb(184, 0, 0);
+	background-color: rgb(255, 0, 0);
 	color: white;
 }
 
