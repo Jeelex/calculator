@@ -38,7 +38,7 @@ body {
 #screen {
 	grid-area: screen;
 	border-radius: 5px;
-	background-color: #2c2c2c;
+	background-color: #1b1c12;
 	padding: 8px 12px;
 	font-size: 27px;
 	display: flex;
